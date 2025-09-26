@@ -1,4 +1,4 @@
-# Harshit Shesh - MERN Developer Portfolio
+# Harshit Shesh - FullStack Developer Portfolio
 
 Hi! I'm **Harshit Shesh**, a MERN stack developer passionate about building modern and responsive web applications.
 

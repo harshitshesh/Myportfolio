@@ -10,6 +10,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,10 +32,28 @@
 
 
 
+<!-- Required CDN (Add in <head>) -->
+<link rel="stylesheet" href="https://unpkg.com/github-calendar/dist/github-calendar-responsive.css">
+<script src="https://unpkg.com/github-calendar"></script>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- VANTA (Optional background) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+
 </head>
 
 <body>
 
+<div id="animatedLayer"></div>
 
 
   <nav>
@@ -44,8 +65,8 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
-      <a href="#github-section">Projects</a>
-      <a href="#github-section">Statics</a>
+      <a href="#hs-projects">Projects</a>
+      <a href="#github-status">Statics</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </div>
@@ -56,10 +77,10 @@
 
     <div class="hero-content">
       <div class="hero-left">
-        <p><span>Web Developer</span> by passion, problem solver by mindset</p>
+        <p><span>MERN Stack  Developer</span> by passion, problem solver by mindset</p>
 
         <div class="hero-buttons">
-          <a href="https://drive.google.com/file/d/1xAeYcYvzlLGKEEa7rEjraSa8v8h8NCoS/view?usp=sharing" class="btn" target="_blank">Resume</a>
+          <a href="img/Resume (1).pdf" onclick="openResume(event)" class="btn" target="_blank">Resume</a>
           <a href="#contact" class="btn">Contact</a>
         </div>
       </div>
@@ -76,12 +97,12 @@
 
     <div class="about-container">
       <div class="about-img-container">
-        <img src="img/passphoto.png" alt="Harshit Photo" class="about-img">
+        <img src="img/profilepic.png" alt="Harshit Photo" class="about-img">
       </div>
 
       <div class="about-content">
         <p class="about-description">
-          Hi! I'm <strong>Harshit Shesh</strong>, a passionate Web Developer with a love for building sleek and
+          Hi! I'm <strong>Harshit Shesh</strong>, a passionate Software Developer with a love for building sleek and
           responsive websites. I enjoy solving complex problems and learning new tech every day.
         </p>
         <ul class="about-list">
@@ -94,7 +115,10 @@
     </div>
   </section>
 
-
+  <div id="vanta-wrapper">
+  <div id="vanta-bg-section"></div>
+  <div class="vanta-overlay"></div>
+  
   <!-- skills  -->
   <section id="skills">
     <h2 class="skills-heading">My Skills</h2>
@@ -110,47 +134,160 @@
     </div>
   </section>
 
+  
+  <!-- Projects -->
 
-  <!-- projects -->
-<!-- GitHub Section -->
-<section id="github-section" style="background:#000; padding:40px 20px; color:#fff;">
-  <h2 style="text-align:center; margin-bottom:30px;">GitHub Stats & Projects</h2>
 
-  <!-- Stats -->
-  <div class="github-stats-wrapper">
-    <div class="stat-box">
-      <h3 id="gh-commits">—</h3>
-      <p>Total Commits</p>
-    </div>
-    <div class="stat-box">
-      <h3 id="gh-repos">—</h3>
-      <p>Public Repos</p>
-    </div>
-    <div class="stat-box">
-      <h3 id="gh-followers">—</h3>
-      <p>Followers</p>
-    </div>
-    <div class="stat-box">
-      <h3 id="gh-stars">—</h3>
-      <p>Total Stars</p>
+
+  <!-- ====== HS PROJECTS SECTION (paste into <body>) ====== -->
+<section class="hs-projects-section" id="hs-projects">
+  <div class="hs-container">
+    <h2 class="hs-section-title">Projects</h2>
+
+    <div class="hs-project-grid">
+      <!-- Example card: replace image src, data-live and data-github -->
+      <article class="hs-project-card" tabindex="0"
+               data-title="Video Calling Room"
+               data-desc="ConnectLive is a real-time video chat application that empowers users to join rooms, communicate via video and audio, and chat with each other. Built with WebRTC for peer-to-peer media streaming and Socket.io for seamless signaling and messaging."
+               data-tech="WebRTC, Socket.io, Node.js, Express, MongoDB, React."
+               data-live="https://jodoapp.netlify.app/"
+               data-github="https://github.com/harshitshesh/Videocalling_room">
+        <div class="hs-thumb">
+          <img src="img/videocall.png" alt="Colorful Diwali project screenshot">
+        </div>
+        <div class="hs-body">
+          <h3 class="hs-title">Video Calling Room</h3>
+          <p class="hs-desc">ConnectLive is a real-time video chat application that empowers users to join rooms, communicate via video and audio, and chat with each other. Built with WebRTC for peer-to-peer media streaming and Socket.io for seamless signaling and messaging.</p>
+          <p class="hs-tech">WebRTC, Socket.io, Node.js, Express, MongoDB, React.</p>
+        </div>
+        <div class="hs-actions">
+          <a class="hs-btn hs-live" href="https://jodoapp.netlify.app/" target="_blank" rel="noopener">Live</a>
+          <a class="hs-btn hs-github" href="https://github.com/harshitshesh/Videocalling_room" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Duplicate above <article> for more projects, change attributes -->
+      <article class="hs-project-card" tabindex="0"
+               data-title="E-Commerce Store"
+               data-desc="A small online shopping app with product listing, cart, wishlist, and checkout. Admin panel to add/edit products. Tech: React.js, Redux (for cart state), Node.js, Express.js, MongoDB Highlight in Resume: Built scalable product APIs with Express and MongoDB. Integrated cart and wishlist using Redux. Added authentication & role-base."
+               data-tech="React, Redux, Node.js, Express, MongoDB."
+               data-live="https://dulcet-unicorn-a71f66.netlify.app/"
+               data-github="https://github.com/harshitshesh/E-Commerce-Store">
+        <div class="hs-thumb">
+          <img src="img/ecommerce.png" alt="CodeUnity project screenshot">
+        </div>
+        <div class="hs-body">
+          <h3 class="hs-title">E-Commerce Store</h3>
+          <p class="hs-desc">A small online shopping app with product listing, cart, wishlist, and checkout. Admin panel to add/edit products. Tech: React.js, Redux (for cart state), Node.js, Express.js, MongoDB Highlight in Resume: Built scalable product APIs with Express and MongoDB. Integrated cart and wishlist using Redux. Added authentication & role-base.</p>
+          <p class="hs-tech">React, Redux, Node.js, Express, MongoDB.</p>
+        </div>
+        <div class="hs-actions">
+          <a class="hs-btn hs-live" href="https://dulcet-unicorn-a71f66.netlify.app/" target="_blank" rel="noopener">Live</a>
+          <a class="hs-btn hs-github" href="https://github.com/harshitshesh/E-Commerce-Store" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <!-- add more cards similarly -->
+
+<article class="hs-project-card" tabindex="0"
+               data-title="Podcaster"
+               data-desc="A sleek, responsive podcast web player interface designed for a seamless listening experience. Built with modern UI elements, smooth animations, and an intuitive layout to make browsing and playing podcasts enjoyable and visually appealing."
+               data-tech="HTML, CSS, JavaScript, GSAP/Smooth Scrolling."
+               data-live="https://incandescent-taffy-814b34.netlify.app/"
+               data-github="https://github.com/harshitshesh/Podcaster">
+        <div class="hs-thumb">
+          <img src="img/podcast.png" alt="CodeUnity project screenshot">
+        </div>
+        <div class="hs-body">
+          <h3 class="hs-title">Podcaster</h3>
+          <p class="hs-desc">A sleek, responsive podcast web player interface designed for a seamless listening experience. Built with modern UI elements, smooth animations, and an intuitive layout to make browsing and playing podcasts enjoyable and visually appealing.</p>
+          <p class="hs-tech">HTML, CSS, JavaScript, GSAP/Smooth Scrolling.
+</p>
+        </div>
+        <div class="hs-actions">
+          <a class="hs-btn hs-live" href="https://incandescent-taffy-814b34.netlify.app/" target="_blank" rel="noopener">Live</a>
+          <a class="hs-btn hs-github" href="https://github.com/harshitshesh/Podcaster" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
     </div>
   </div>
 
-  <!-- Projects -->
-  <h3 style="margin-top:40px; margin-bottom:20px;">Recent Projects</h3>
-  <div id="repo-grid" class="repo-grid"></div>
-
-  <!-- Contribution Calendar -->
-  <h3 style="margin-top:40px; margin-bottom:20px;">Contribution Calendar</h3>
-  <div id="calendar-wrapper"></div>
+  <!-- Focus overlay (auto-created if not present) -->
+  <div class="hs-focus-overlay" id="hsFocus" aria-hidden="true">
+    <div class="hs-focus-card" role="dialog" aria-modal="true">
+      <button class="hs-focus-close" id="hsFocusClose" aria-label="Close">✖</button>
+      <div class="hs-focus-inner">
+        <div class="hs-focus-thumb"><img src="" alt=""></div>
+        <div class="hs-focus-info">
+          <h3 id="hsFocusTitle"></h3>
+          <p id="hsFocusDesc"></p>
+          <p id="hsFocusTech" class="hs-tech"></p>
+          <div id="hsFocusBtns" style="margin-top:12px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+<!-- ====== /HS PROJECTS SECTION ====== -->
+
+
+
+
+
+<!-- GitHub Section -->
+ 
+     
+
+<!-- 🌟 GITHUB STATUS SECTION -->
+<section id="github-status" class="gh-section">
+    <h1 class="gh-title">My GitHub Status</h1>
+
+    <!-- Background Animation container (optional Vanta.js) -->
+    <div id="vanta-bg"></div>
+
+    <div class="gh-wrapper">
+        
+        <!-- Stats Cards -->
+        <div class="gh-stats-container">
+
+            <div class="gh-card" id="public-repos">
+                <h2>Public Repositories</h2>
+                <p class="value">0</p>
+            </div>
+
+            <div class="gh-card" id="followers">
+                <h2>Followers</h2>
+                <p class="value">0</p>
+            </div>
+
+            <div class="gh-card" id="following">
+                <h2>Following</h2>
+                <p class="value">0</p>
+            </div>
+
+        </div>
+
+        <!-- Contribution Calendar -->
+        <div class="gh-calendar">
+            <h2 class="calendar-title">Contribution Calendar</h2>
+            <div id="github-calendar"></div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
 
 
   <!-- resume -->
   <section id="resume">
     <h2 class="resume-heading">Resume</h2>
     <p class="resume-text">Click the button below to download my resume.</p>
-    <a href="img/resume_harshit (2).pdf" download class="resume-btn">Download Resume</a>
+    <a href="img/Resume (1).pdf" onclick="openResume(event)" download class="resume-btn">Download Resume</a>
   </section>
 
 
@@ -182,12 +319,11 @@
   <div class="contact-icons">
     <a href="https://github.com/harshitshesh" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/harshit-shesh-908129253/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://pinterest.com/" target="_blank"><i class="fab fa-pinterest"></i></a>
-    <a href="harshitshesh78r@email.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://mail.google.com/mail/u/0/?fs=1&to=harshitshesh78@gmail.com&su=Let%27s+Connect&body=Hi+Harshit,&tf=cm"><i class="fas fa-envelope"></i></a>
   </div>
 </section>
 
-
+</div>
 
 </body>
 

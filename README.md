@@ -3,7 +3,7 @@
 Hi! I'm **Harshit Shesh**, a MERN stack developer passionate about building modern and responsive web applications.
 
 ## 🚀 Portfolio
-You can check out my live portfolio here: [Harshit Shesh Portfolio](https://benevolent-croissant-661e00.netlify.app/)
+You can check out my live portfolio here: [Harshit Shesh Portfolio](https://aesthetic-mousse-6aebc6.netlify.app/)
 
 ## 💻 Skills
 - **Frontend:** HTML, CSS, JavaScript, React.js, Bootstrap
@@ -24,4 +24,4 @@ Feel free to connect with me via email or LinkedIn for collaborations or opportu
 
 ---
 
-Visit my [Portfolio](https://benevolent-croissant-661e00.netlify.app/) to see my projects in action!
+Visit my [Portfolio](https://aesthetic-mousse-6aebc6.netlify.app/) to see my projects in action!
